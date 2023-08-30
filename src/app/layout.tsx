@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { SupabaseClient } from '@supabase/supabase-js'
 import './globals.css'
 import 'antd/dist/reset.css';
@@ -11,7 +11,8 @@ import CurrentUserContext from '@/contexts/currentUser.context'
 import { ConfigProvider, theme } from 'antd';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'
+] })
 
 export default function RootLayout({
   children,
@@ -35,7 +36,7 @@ export default function RootLayout({
     }}>
       <SupabaseClientContext.Provider value={supabase}>
         <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-            <html lang="en">
+            <html lang='en'>
               <body className={inter.className}>{children}</body>
             </html>
         </CurrentUserContext.Provider>

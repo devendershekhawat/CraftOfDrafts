@@ -1,8 +1,8 @@
-"use client";
-import CurrentUserContext from "@/contexts/currentUser.context";
-import { SupabaseClientContext } from "@/supabase/supabase.client";
-import { useRouter } from "next/navigation";
-import { ReactNode, useContext, useEffect } from "react";
+'use client';
+import CurrentUserContext from '@/contexts/currentUser.context';
+import { SupabaseClientContext } from '@/supabase/supabase.client';
+import { useRouter } from 'next/navigation';
+import { ReactNode, useContext, useEffect } from 'react';
 
 
 function ProtectedRoute({

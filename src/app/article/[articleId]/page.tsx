@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import AddComment from "@/app/components/AddComment";
-import ArticleComments from "@/app/components/ArticleComments";
-import CommentsDrawer from "@/app/components/CommentsDrawer";
-import SelectionPopup from "@/app/components/SelectionPopup";
-import ProtectedRoute from "@/app/protected.route";
-import CurrentUserContext from "@/contexts/currentUser.context";
-import useTextSelection from "@/hooks/useSelectionPopup";
-import useSupabase from "@/supabase/database.functions";
-import { Tables } from "@/supabase/database.types";
-import { SupabaseClientContext } from "@/supabase/supabase.client";
-import { Button, Card, Typography } from "antd";
-import { Emoji } from "emoji-picker-react";
-import Link from "next/link";
-import { LegacyRef, useContext, useEffect, useRef, useState, useLayoutEffect } from "react";
+import AddComment from '@/app/components/AddComment';
+import ArticleComments from '@/app/components/ArticleComments';
+import CommentsDrawer from '@/app/components/CommentsDrawer';
+import SelectionPopup from '@/app/components/SelectionPopup';
+import ProtectedRoute from '@/app/protected.route';
+import CurrentUserContext from '@/contexts/currentUser.context';
+import useTextSelection from '@/hooks/useSelectionPopup';
+import useSupabase from '@/supabase/database.functions';
+import { Tables } from '@/supabase/database.types';
+import { SupabaseClientContext } from '@/supabase/supabase.client';
+import { Button, Card, Typography } from 'antd';
+import { Emoji } from 'emoji-picker-react';
+import Link from 'next/link';
+import { useContext, useEffect, useRef, useState } from 'react';
 import reactHTMLParser from 'react-html-parser';
 
 // @ts-ignore
@@ -42,7 +42,7 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
     const [readerRef, setReaderRef] = useState<HTMLDivElement | null>(null);
     const [popupRef, setPopupRef] = useState<HTMLDivElement | null>(null);
 
-    const { selection, resetSelection } = useTextSelection(readerRef, popupRef);
+    const { selection } = useTextSelection(readerRef, popupRef);
 
     useEffect(() => {
     }, [selection]);
@@ -88,14 +88,14 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
 
     const renderCardExtras = () => {
         const extras = [
-            <Link href="/">
+            <Link href='/'>
                 <Button>Go Back</Button>
             </Link>
         ];
-        if (user.id === currentUser?.id) {
+        if ((user as Tables<'Users'>).id === currentUser?.id) {
             extras.push(
                 <Link href={`/draft/${draftId}`}>
-                    <Button className="ml-[8px]" type="primary">Edit</Button>
+                    <Button className='ml-[8px]' type='primary'>Edit</Button>
                 </Link>
             )
         }
@@ -105,18 +105,18 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
     return (
         <ProtectedRoute>
             <SelectionPopup onClickAddComment={() => setOpenCommentModal(true)} toolbarRef={(ref) => setPopupRef(ref)}/>
-            <div className="flex max-w-[900px] my-[20px] mx-[auto]">
+            <div className='flex max-w-[900px] my-[20px] mx-[auto]'>
                 <Card
-                    className="w-[100%]"
+                    className='w-[100%]'
                     loading={loading}
                     extra={renderCardExtras()}
-                    title={<Card.Meta className='h-[30px]' title={`Article By ${user?.Name}`} avatar={<Emoji size={24} unified={user?.Icon || ''} />} />}
+                    title={<Card.Meta className='h-[30px]' title={`Article By ${(user as Tables<'Users'>)?.Name}`} avatar={<Emoji size={24} unified={(user as Tables<'Users'>)?.Icon || ''} />} />}
                 >
                     <Typography.Title level={2}>
-                        {draft.title}
+                        {(draft as Tables<'Drafts'>).title}
                     </Typography.Title>
-                    <div ref={(ref) => setReaderRef(ref) } id="reader" className="pl-[30px]">
-                        {reactHTMLParser(draft.content as string)}
+                    <div ref={(ref) => setReaderRef(ref) } id='reader' className='pl-[30px]'>
+                        {reactHTMLParser((draft as Tables<'Drafts'>).content as string)}
                     </div>
                     {
                         (commentsGroupedByParagraph || []).map(({ para, comments }) => (

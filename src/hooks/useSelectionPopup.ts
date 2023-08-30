@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from 'react';
 
 export type ArticleSelction = {
     anchorOffset: number,

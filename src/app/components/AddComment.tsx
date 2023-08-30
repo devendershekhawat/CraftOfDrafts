@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import CurrentUserContext from "@/contexts/currentUser.context";
-import { ArticleSelction } from "@/hooks/useSelectionPopup";
-import useSupabase from "@/supabase/database.functions";
-import { Input, Modal } from "antd";
-import { space } from "postcss/lib/list";
-import { Dispatch, LegacyRef, MutableRefObject, SetStateAction, useContext, useState } from "react";
+import CurrentUserContext from '@/contexts/currentUser.context';
+import { ArticleSelction } from '@/hooks/useSelectionPopup';
+import useSupabase from '@/supabase/database.functions';
+import { Input, Modal } from 'antd';
+import { space } from 'postcss/lib/list';
+import { Dispatch, LegacyRef, MutableRefObject, SetStateAction, useContext, useState } from 'react';
 // @ts-ignore
-import { fromRange } from "xpath-range";
+import { fromRange } from 'xpath-range';
 
 function AddComment({
     open, selection, setOpen, readerRef, draftId, afterAddComment
@@ -46,10 +46,10 @@ function AddComment({
 
     return (
         <Modal
-            title="Add a Comment"
+            title='Add a Comment'
             open={open}
             onCancel={() => setOpen(false)}
-            okText="Add Comment"
+            okText='Add Comment'
             onOk={handleComment}
             okButtonProps={{
                 loading: addingComment,
@@ -57,7 +57,7 @@ function AddComment({
             }}
         >
             {selection ? selection.text : ''}
-            <Input.TextArea value={comment} placeholder="Write your thoughts" onChange={(e) => setComment(e.target.value)}/>
+            <Input.TextArea value={comment} placeholder='Write your thoughts' onChange={(e) => setComment(e.target.value)}/>
         </Modal>
     );
 }   

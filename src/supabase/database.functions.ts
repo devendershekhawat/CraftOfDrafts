@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useContext, useState } from "react";
-import { SupabaseClientContext } from "./supabase.client";
-import { SupabaseClient } from "@supabase/supabase-js";
-import { Database, Tables } from "./database.types";
+import { Dispatch, SetStateAction, useContext, useState } from 'react';
+import { SupabaseClientContext } from './supabase.client';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { Database, Tables } from './database.types';
 import { message } from 'antd'
 
 function getAllUsers(
@@ -56,7 +56,7 @@ function deleteUser(
     return async (userId: number) => {
         setLoading(true)
         try {
-            const { error } = await supabase.from('Users').delete().eq("id", userId);
+            const { error } = await supabase.from('Users').delete().eq('id', userId);
             if (error) throw error;
             setLoading(false)
         } catch (error) {
@@ -229,7 +229,7 @@ function deleteDraft(
     return async (draftId: number) => {
         setLoading(true)
         try {
-            const { error } = await supabase.from('Drafts').delete().eq("id", draftId);
+            const { error } = await supabase.from('Drafts').delete().eq('id', draftId);
             if (error) throw error;
             setLoading(false)
         } catch (error) {
@@ -286,11 +286,11 @@ function getCommentsByDraftId(
 
 function useSupabase() {
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState<undefined | Tables<'Users'> | Tables<'Users'>[] | Tables<'Drafts'>[] | Tables<'Drafts'> | Tables<'Comments'> | Tables<'Comments'>[]>(undefined);
+    const [data, setData] = useState<undefined | Tables<'Users'>[] | Tables<'Users'> | Tables<'Drafts'>[] | Tables<'Drafts'> | Tables<'Comments'> | Tables<'Comments'>[]>(undefined);
     const supabase = useContext(SupabaseClientContext);
 
     const setErrorMessage = (error: unknown) => {
-        message.error("Error fetching data");
+        message.error('Error fetching data');
         throw error;
     }
 

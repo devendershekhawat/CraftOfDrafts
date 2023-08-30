@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { CommentOutlined } from "@ant-design/icons";
-import { Button } from "antd";
-import { LegacyRef } from "react";
+import { CommentOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import { LegacyRef } from 'react';
 
 function SelectionPopup({ toolbarRef, onClickAddComment }:
     { toolbarRef: LegacyRef<HTMLDivElement>, onClickAddComment: () => void }
@@ -15,12 +15,12 @@ function SelectionPopup({ toolbarRef, onClickAddComment }:
                     after:border-l-[transparent] after:border-b-[transparent] rounded-[10px] z-[1000]
                 "
                 ref={toolbarRef}
-                id="reader-tooltip"
+                id='reader-tooltip'
             >
                 <Button
                     icon={<CommentOutlined />}
-                    type="link"
-                    className="text-white"
+                    type='link'
+                    className='text-white'
                     onClick={() => onClickAddComment()}
                 >
                     Add Comment

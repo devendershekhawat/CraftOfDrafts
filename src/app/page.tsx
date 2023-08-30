@@ -1,9 +1,5 @@
-"use client";
+'use client';
 import CurrentUserContext from '@/contexts/currentUser.context';
-import { Database, Tables } from '@/supabase/database.types';
-import { SupabaseClientContext, createSupabaseClient } from '@/supabase/supabase.client';
-import { SupabaseClient } from '@supabase/supabase-js';
-import Image from 'next/image'
 import { useContext, useEffect, useState } from 'react';
 import ProtectedRoute from './protected.route';
 import { Avatar, Button, Card, message } from 'antd';
@@ -39,8 +35,8 @@ export default function Home() {
           className='w-[100%]'
           title={<Card.Meta className='h-[30px]' title={`Welcome ${currentUser?.Name}`} avatar={<Emoji size={24} unified={currentUser?.Icon || ''} />} />}
           extra={[
-            <Button className='mr-[8px]' onClick={() => setCurrentUser(undefined)} danger type="primary">Logout</Button>,
-            <Button icon={<EditFilled />} type="primary" onClick={handleCreateNewDraft} loading={creatingNewDraft}>Create Draft</Button>
+            <Button className='mr-[8px]' onClick={() => setCurrentUser(undefined)} danger type='primary'>Logout</Button>,
+            <Button icon={<EditFilled />} type='primary' onClick={handleCreateNewDraft} loading={creatingNewDraft}>Create Draft</Button>
           ]}
         >
           <DraftList userId={currentUser?.id} />

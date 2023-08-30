@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import useSupabase from "@/supabase/database.functions";
-import { Tables } from "@/supabase/database.types";
-import { SupabaseClientContext } from "@/supabase/supabase.client";
-import { List, Typography } from "antd";
-import Link from "next/link";
-import { useContext, useEffect } from "react";
+import useSupabase from '@/supabase/database.functions';
+import { Tables } from '@/supabase/database.types';
+import { SupabaseClientContext } from '@/supabase/supabase.client';
+import { List, Typography } from 'antd';
+import Link from 'next/link';
+import { useContext, useEffect } from 'react';
 
 function DraftList({ userId, type = 'Own' }: {userId: number, type?: 'Own' | 'Other'}) {
     const { loading, data: drafts, getUserDrafts } = useSupabase();

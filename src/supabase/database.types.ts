@@ -55,16 +55,16 @@ export type Json =
           }
           Relationships: [
             {
-              foreignKeyName: "Comments_draftid_fkey"
-              columns: ["draftid"]
-              referencedRelation: "Drafts"
-              referencedColumns: ["id"]
+              foreignKeyName: 'Comments_draftid_fkey'
+              columns: ['draftid']
+              referencedRelation: 'Drafts'
+              referencedColumns: ['id']
             },
             {
-              foreignKeyName: "Comments_userid_fkey"
-              columns: ["userid"]
-              referencedRelation: "Users"
-              referencedColumns: ["id"]
+              foreignKeyName: 'Comments_userid_fkey'
+              columns: ['userid']
+              referencedRelation: 'Users'
+              referencedColumns: ['id']
             }
           ]
         }
@@ -95,10 +95,10 @@ export type Json =
           }
           Relationships: [
             {
-              foreignKeyName: "Drafts_user_fkey"
-              columns: ["user"]
-              referencedRelation: "Users"
-              referencedColumns: ["id"]
+              foreignKeyName: 'Drafts_user_fkey'
+              columns: ['user']
+              referencedRelation: 'Users'
+              referencedColumns: ['id']
             }
           ]
         }

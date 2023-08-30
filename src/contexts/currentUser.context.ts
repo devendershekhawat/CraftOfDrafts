@@ -1,5 +1,5 @@
-import { Tables } from "@/supabase/database.types";
-import { createContext, Dispatch, SetStateAction } from "react";
+import { Tables } from '@/supabase/database.types';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 const CurrentUserContext = createContext<{
     currentUser: Tables<'Users'> | undefined;
