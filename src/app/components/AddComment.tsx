@@ -4,8 +4,7 @@ import CurrentUserContext from '@/contexts/currentUser.context';
 import { ArticleSelction } from '@/hooks/useSelectionPopup';
 import useSupabase from '@/supabase/database.functions';
 import { Input, Modal } from 'antd';
-import { space } from 'postcss/lib/list';
-import { Dispatch, LegacyRef, MutableRefObject, SetStateAction, useContext, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useState } from 'react';
 // @ts-ignore
 import { fromRange } from 'xpath-range';
 

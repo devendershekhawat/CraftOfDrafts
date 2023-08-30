@@ -2,7 +2,7 @@
 import CurrentUserContext from '@/contexts/currentUser.context';
 import { useContext, useEffect, useState } from 'react';
 import ProtectedRoute from './protected.route';
-import { Avatar, Button, Card, message } from 'antd';
+import { Button, Card, message } from 'antd';
 import { Emoji } from 'emoji-picker-react';
 import { EditFilled } from '@ant-design/icons';
 import DraftList from './components/DraftList';

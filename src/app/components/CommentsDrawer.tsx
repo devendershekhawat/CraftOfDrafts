@@ -2,7 +2,7 @@ import useSupabase from '@/supabase/database.functions';
 import { Tables } from '@/supabase/database.types';
 import { Drawer, List, Space, Tag, Typography } from 'antd';
 import { Emoji } from 'emoji-picker-react';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 function CommentsDrawer(
     { open, setOpen,  commentsWithRange }:

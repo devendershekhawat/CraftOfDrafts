@@ -22,13 +22,6 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
-        'eol-last': ['error', 'always'],
-        'semi': ['error', 'always'],
-        'comma-dangle': ['error', 'always-multiline'],
-        'react/react-in-jsx-scope': 0,
-        'quotes': ['error', 'single'],
-        'quote-props': ['error', 'consistent-as-needed'],
-        'indent': ['error', 4],
-        '@typescript-eslint/no-explicit-any': 0,
+        
     },
 };

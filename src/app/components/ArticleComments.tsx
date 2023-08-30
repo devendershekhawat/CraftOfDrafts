@@ -3,9 +3,6 @@
 import { Tables } from '@/supabase/database.types';
 import { MessageFilled } from '@ant-design/icons';
 import { Button } from 'antd';
-import { MutableRefObject, useEffect, useState } from 'react';
-// @ts-ignore
-import { toRange } from 'xpath-range';
 import { CommentsWithRange } from '../article/[articleId]/page';
 
 function ArticleComments({ comments, para, openCommentsDrawer }:

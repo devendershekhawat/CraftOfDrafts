@@ -2,7 +2,6 @@
 
 import ProtectedRoute from '@/app/protected.route';
 import useSupabase from '@/supabase/database.functions';
-import { Tables } from '@/supabase/database.types';
 import { SupabaseClientContext } from '@/supabase/supabase.client';
 import { Button, Card, Input, Tag } from 'antd';
 import Link from 'next/link';

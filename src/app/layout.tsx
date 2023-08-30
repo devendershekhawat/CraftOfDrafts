@@ -2,7 +2,6 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import './globals.css'
 import 'antd/dist/reset.css';
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import { Database, Tables } from '@/supabase/database.types'
