@@ -59,8 +59,7 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
 
     useEffect(() => {
         if (Array.isArray(comments) && comments.length && readerRef) {
-            const commentsRangeMap = comments.map((comment) => {
-                // @ts-ignore
+            const commentsRangeMap = comments.map((comment) => {                // @ts-ignore
                 const { endXpath, startXpath, endOffset, startOffset } = comment;
                 const range: Range = toRange(startXpath, startOffset, endXpath, endOffset, readerRef);
                 return {
@@ -68,14 +67,11 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
                     range
                 }
             });
-
             const distinctParagraphs = new Set(commentsRangeMap.map(crm => crm.range.startContainer));
-
             const groupedComments = Array.from(distinctParagraphs).map(para => ({
                 para,
                 comments: commentsRangeMap.filter(({ range }) => para === range.startContainer)
             }));
-
             setCommentsGroupedByParagraph(groupedComments as GroupedComments[]);
         }
     }, [comments, readerRef]);
