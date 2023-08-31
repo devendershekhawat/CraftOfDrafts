@@ -10,6 +10,7 @@ import { useContext, useEffect } from 'react';
 function DraftList({ userId, type = 'Own' }: {userId: number, type?: 'Own' | 'Other'}) {
     const { loading, data: drafts, getUserDrafts } = useSupabase();
     const { data: otherdrafts, getOtherUserDrafts } = useSupabase();
+    
     const supabase = useContext(SupabaseClientContext);
 
     useEffect(() => {

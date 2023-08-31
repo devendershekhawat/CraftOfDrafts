@@ -16,13 +16,13 @@ function DraftEditor({ params: { draftId } }: {params : { draftId: number }}) {
     const { loading, data: draft, getDraftById } = useSupabase();
     const { loading: updating, updateDraft } = useSupabase();
     const { loading: deleting, deleteDraft } = useSupabase();
+    
     const supabase = useContext(SupabaseClientContext);
     const router = useRouter();
 
     const [title, setTitle] = useState<string>('');
     const [value, setValue] = useState<string>('');
     const [textContent, setTextContent] = useState<string>('');
-    const editorRef = useRef<Quill.UnprivilegedEditor>();
 
     useEffect(() => {
         if (supabase && draftId > 0 && getDraftById) {
@@ -76,7 +76,7 @@ function DraftEditor({ params: { draftId } }: {params : { draftId: number }}) {
                         <Link href='/'>
                             <Button className='mr-[8px]' type='primary'>Go back</Button>
                         </Link>,
-                        <Button loading={deleting} className='mr-[8px]' type='primary' danger>Delete Draft</Button>
+                        <Button loading={deleting} onClick={handleDelete} className='mr-[8px]' type='primary' danger>Delete Draft</Button>
                     ]}
                 >
                     <Input

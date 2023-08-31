@@ -30,22 +30,18 @@ function ArticleView({ params: { articleId: draftId }} : { params: { articleId: 
     const { loading, data: draft, getDraftById } = useSupabase();
     const { loading: loadingUser, data: user, getUserById } = useSupabase();
     const { loading: loadingComments, data: comments, getCommentsByDraftId } = useSupabase();
+
     const supabase = useContext(SupabaseClientContext);
     const { currentUser } = useContext(CurrentUserContext);
+
     const [openCommentModal, setOpenCommentModal] = useState(false);
     const [commentsDrawerOpen, setCommentsDrawerOpen] = useState(false);
     const [commentsToShow, setCommentsToShow] = useState<CommentsWithRange>([]);
-
     const [commentsGroupedByParagraph, setCommentsGroupedByParagraph] = useState<GroupedComments[]>([]);
-
-
     const [readerRef, setReaderRef] = useState<HTMLDivElement | null>(null);
     const [popupRef, setPopupRef] = useState<HTMLDivElement | null>(null);
 
     const { selection } = useTextSelection(readerRef, popupRef);
-
-    useEffect(() => {
-    }, [selection]);
     
     useEffect(() => {
         if (supabase && draftId > 0 && getDraftById && getCommentsByDraftId) {

@@ -11,14 +11,17 @@ import { SupabaseClientContext } from '@/supabase/supabase.client';
 
 function Login() {
     const { loading, getAllUsers, data: users } = useSupabase();
+    
     const { loading: addingUser, addUser } = useSupabase();
     const { loading: deleting, deleteUser } = useSupabase();
-    const { setCurrentUser, currentUser } = useContext(CurrentUserContext);
     const [modalOpen, setModalOpen] = useState(false);
     const [newUserName, setNewUserName] = useState('');
     const [newUserIcon, setNewUserIcon] = useState('');
+
     const router = useRouter();
+
     const supabase = useContext(SupabaseClientContext);
+    const { setCurrentUser, currentUser } = useContext(CurrentUserContext);
 
     useEffect(() => {
         if (getAllUsers) {

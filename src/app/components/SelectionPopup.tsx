@@ -9,22 +9,22 @@ function SelectionPopup({ toolbarRef, onClickAddComment }:
 ) {
     return (
         <div
-                className="
-                    bg-orange-500 p-[10px] absolute hidden after:content-[''] after:absolute after:top-[100%] after:left-[50%]
-                    after:ml-[5px] after:border after:border-[5px] after:border-t-orange-500 after:border-r-[transparent]
-                    after:border-l-[transparent] after:border-b-[transparent] rounded-[10px] z-[1000]
-                "
-                ref={toolbarRef}
-                id='reader-tooltip'
+            className="
+                bg-orange-500 p-[10px] absolute hidden after:content-[''] after:absolute after:top-[100%] after:left-[50%]
+                after:ml-[5px] after:border after:border-[5px] after:border-t-orange-500 after:border-r-[transparent]
+                after:border-l-[transparent] after:border-b-[transparent] rounded-[10px] z-[1000]
+            "
+            ref={toolbarRef}
+            id='reader-tooltip'
+        >
+            <Button
+                icon={<CommentOutlined />}
+                type='link'
+                className='text-white'
+                onClick={() => onClickAddComment()}
             >
-                <Button
-                    icon={<CommentOutlined />}
-                    type='link'
-                    className='text-white'
-                    onClick={() => onClickAddComment()}
-                >
-                    Add Comment
-                </Button>
+                Add Comment
+            </Button>
         </div>
     );
 }
